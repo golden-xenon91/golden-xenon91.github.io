@@ -1,0 +1,1603 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>花都影视hdys - 原创影像品牌,品质内容社区</title>
+<meta name="description" content="花都影视hdys官方网站，专注原创影像与精品内容创作，汇聚优质创作者，打造值得信赖的视频内容生态与社区。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1724'/%3E%3Cpath d='M24 18 L48 32 L24 46 Z' fill='%23ff6b3d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --hdys-ink:#0f1724;
+  --hdys-ink-soft:#1c2838;
+  --hdys-paper:#f6f7f9;
+  --hdys-white:#ffffff;
+  --hdys-accent:#ff6b3d;
+  --hdys-accent-deep:#e04e22;
+  --hdys-cyan:#3cc8c8;
+  --hdys-line:#e2e6ec;
+  --hdys-muted:#6b7685;
+  --hdys-radius:14px;
+  --hdys-shadow:0 8px 26px rgba(15,23,36,.09);
+  --hdys-shadow-lift:0 16px 40px rgba(15,23,36,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:112px}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--hdys-paper);
+  color:var(--hdys-ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ============ 公告条 + 页头 吸顶 ============ */
+.hdys-sticky-wrap{position:sticky;top:0;z-index:120}
+.hdys-announce{
+  background:linear-gradient(90deg,var(--hdys-ink) 0%,var(--hdys-ink-soft) 60%,#2a3a50 100%);
+  color:#dfe6ef;font-size:13px;line-height:1.6;
+}
+.hdys-announce-inner{
+  max-width:1240px;margin:0 auto;padding:9px 24px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.hdys-announce-badge{
+  flex:0 0 auto;background:var(--hdys-accent);color:#fff;
+  font-size:11px;letter-spacing:.14em;padding:2px 9px;border-radius:99px;font-weight:700;
+}
+.hdys-announce-ticker{flex:1 1 auto;min-width:0;position:relative;height:20px;overflow:hidden}
+.hdys-announce-track{position:absolute;inset:0;display:flex;align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdys-announce-track b{color:#ffb79c;font-weight:600}
+.hdys-announce-more{flex:0 0 auto;color:#9fb2c8;font-size:12px;border-bottom:1px dashed #52647c}
+.hdys-announce-more:hover{color:#fff}
+
+.hdys-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hdys-line);
+}
+.hdys-header-inner{
+  max-width:1240px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;gap:26px;height:70px;
+}
+.hdys-brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+.hdys-brand-mark{
+  width:38px;height:38px;border-radius:11px;
+  background:linear-gradient(140deg,var(--hdys-ink) 0%,#2c3e58 100%);
+  display:grid;place-items:center;flex:0 0 auto;
+}
+.hdys-brand-mark svg{width:18px;height:18px}
+.hdys-brand-text strong{display:block;font-size:17px;letter-spacing:.02em;line-height:1.2}
+.hdys-brand-text span{display:block;font-size:10px;letter-spacing:.28em;color:var(--hdys-muted);line-height:1.4}
+.hdys-nav{display:flex;align-items:center;gap:4px;flex:1 1 auto;flex-wrap:wrap}
+.hdys-nav a{
+  font-size:14px;padding:7px 12px;border-radius:8px;color:#3a4657;
+  transition:background .18s,color .18s;position:relative;
+}
+.hdys-nav a:hover{background:#eef1f5;color:var(--hdys-ink)}
+.hdys-nav a.is-active{color:var(--hdys-accent-deep);font-weight:600}
+.hdys-nav a.is-active::after{
+  content:"";position:absolute;left:12px;right:12px;bottom:1px;height:2px;
+  background:var(--hdys-accent);border-radius:2px;
+}
+.hdys-header-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.hdys-search{position:relative}
+.hdys-search input{
+  width:196px;height:38px;border-radius:99px;border:1px solid var(--hdys-line);
+  background:#f2f4f7;padding:0 38px 0 16px;font-size:13px;outline:none;
+  transition:width .22s,border-color .2s,background .2s;
+}
+.hdys-search input:focus{width:250px;border-color:var(--hdys-accent);background:#fff}
+.hdys-search button{
+  position:absolute;right:5px;top:5px;width:28px;height:28px;border-radius:50%;
+  display:grid;place-items:center;background:var(--hdys-ink);color:#fff;
+}
+.hdys-search button svg{width:13px;height:13px}
+.hdys-search-feedback{
+  position:absolute;top:46px;right:0;width:280px;background:#fff;border:1px solid var(--hdys-line);
+  border-radius:12px;box-shadow:var(--hdys-shadow-lift);padding:12px 14px;font-size:12.5px;
+  color:var(--hdys-muted);display:none;z-index:60;
+}
+.hdys-search-feedback.is-open{display:block;animation:hdysFade .2s ease}
+.hdys-search-feedback b{color:var(--hdys-ink)}
+.hdys-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 20px;border-radius:99px;font-size:14px;font-weight:600;
+  transition:transform .18s,box-shadow .2s,background .2s,color .2s;
+}
+.hdys-btn-primary{background:var(--hdys-accent);color:#fff;box-shadow:0 6px 18px rgba(255,107,61,.32)}
+.hdys-btn-primary:hover{background:var(--hdys-accent-deep);transform:translateY(-2px)}
+.hdys-btn-ghost{background:transparent;border:1px solid var(--hdys-line);color:var(--hdys-ink)}
+.hdys-btn-ghost:hover{border-color:var(--hdys-ink);background:#fff}
+.hdys-header-submit{display:inline-flex;padding:9px 18px;font-size:13.5px}
+.hdys-burger{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--hdys-line);place-items:center;background:#fff}
+.hdys-burger span{display:block;width:17px;height:2px;background:var(--hdys-ink);border-radius:2px;position:relative}
+.hdys-burger span::before,.hdys-burger span::after{
+  content:"";position:absolute;left:0;width:17px;height:2px;background:var(--hdys-ink);border-radius:2px;
+}
+.hdys-burger span::before{top:-6px}
+.hdys-burger span::after{top:6px}
+
+.hdys-mobile-panel{display:none;border-top:1px solid var(--hdys-line);background:#fff;padding:12px 24px 20px}
+.hdys-mobile-panel.is-open{display:block}
+.hdys-mobile-panel a{display:block;padding:11px 4px;font-size:14.5px;border-bottom:1px dashed var(--hdys-line);color:#33404f}
+.hdys-mobile-panel a:last-child{border-bottom:none}
+
+/* ============ 通用容器 ============ */
+.hdys-container{max-width:1240px;margin:0 auto;padding:0 24px}
+.hdys-section{padding:74px 0}
+.hdys-section--tight{padding:52px 0}
+.hdys-section-head{margin-bottom:38px;max-width:820px}
+.hdys-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.2em;
+  color:var(--hdys-accent-deep);font-weight:700;text-transform:uppercase;margin-bottom:12px;
+}
+.hdys-eyebrow::before{content:"";width:22px;height:2px;background:var(--hdys-accent)}
+.hdys-h2{font-size:clamp(23px,3vw,32px);line-height:1.34;letter-spacing:.01em;font-weight:800}
+.hdys-section-head p{margin-top:12px;color:var(--hdys-muted);font-size:14.5px;max-width:680px}
+
+/* ============ 首屏 ============ */
+.hdys-hero{background:linear-gradient(180deg,#0f1724 0%,#16243a 62%,#1d2f47 100%);color:#eef3f9;position:relative;overflow:hidden}
+.hdys-hero::before{
+  content:"";position:absolute;right:-160px;top:-120px;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,61,.22),transparent 68%);
+}
+.hdys-hero::after{
+  content:"";position:absolute;left:-120px;bottom:-180px;width:460px;height:460px;border-radius:50%;
+  background:radial-gradient(circle,rgba(60,200,200,.16),transparent 70%);
+}
+.hdys-hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding:64px 0 72px}
+.hdys-hero-tagline{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:.16em;color:#9fd8d8;margin-bottom:18px}
+.hdys-hero-tagline i{width:7px;height:7px;border-radius:50%;background:var(--hdys-cyan);box-shadow:0 0 0 4px rgba(60,200,200,.18)}
+.hdys-h1{font-size:clamp(38px,5.6vw,62px);line-height:1.08;font-weight:900;letter-spacing:.01em;margin-bottom:20px}
+.hdys-h1 em{font-style:normal;color:var(--hdys-accent);position:relative;white-space:nowrap}
+.hdys-h1 em::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:9px;background:rgba(255,107,61,.22);border-radius:3px;z-index:-1}
+.hdys-hero-lead{font-size:15.5px;color:#b9c6d6;max-width:520px;margin-bottom:26px}
+.hdys-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+.hdys-hero-actions .hdys-btn-ghost{border-color:rgba(255,255,255,.28);color:#e8eef6}
+.hdys-hero-actions .hdys-btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.hdys-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:1px solid rgba(255,255,255,.14);padding-top:24px;max-width:520px}
+.hdys-stat-num{font-size:clamp(22px,2.6vw,30px);font-weight:800;color:#fff;letter-spacing:.01em}
+.hdys-stat-num small{font-size:13px;font-weight:600;color:var(--hdys-cyan);margin-left:3px}
+.hdys-stat-label{font-size:12px;color:#93a3b8;letter-spacing:.06em;margin-top:2px}
+
+.hdys-hero-visual{position:relative}
+.hdys-hero-cover{
+  border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.1);position:relative;aspect-ratio:16/10;background:#1a2a40;
+}
+.hdys-hero-cover img{width:100%;height:100%;object-fit:cover}
+.hdys-hero-cover-badge{
+  position:absolute;left:16px;top:16px;background:rgba(15,23,36,.72);backdrop-filter:blur(6px);
+  color:#fff;font-size:11.5px;letter-spacing:.12em;padding:5px 11px;border-radius:99px;border:1px solid rgba(255,255,255,.2);
+}
+.hdys-hero-mini{
+  position:absolute;left:-24px;bottom:-22px;width:196px;border-radius:14px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 40px rgba(0,0,0,.4);background:#16243a;
+}
+.hdys-hero-mini img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.hdys-hero-mini figcaption{padding:8px 11px;font-size:11.5px;color:#c6d2e1;line-height:1.5}
+
+/* ============ 关键词解析长文 ============ */
+.hdys-about{background:#fff}
+.hdys-about-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:52px;align-items:start}
+.hdys-about-side{position:sticky;top:150px}
+.hdys-about-card{
+  background:linear-gradient(160deg,#0f1724,#22344c);color:#dfe8f2;border-radius:18px;padding:28px;
+  box-shadow:var(--hdys-shadow);
+}
+.hdys-about-card h3{font-size:17px;margin-bottom:12px;color:#fff}
+.hdys-about-card p{font-size:13.5px;color:#a9b9cc;margin-bottom:16px}
+.hdys-about-list li{display:flex;gap:10px;font-size:13px;color:#c3d0df;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.12)}
+.hdys-about-list li:last-child{border-bottom:none}
+.hdys-about-list li b{color:var(--hdys-accent);font-weight:700;flex:0 0 auto}
+.hdys-prose p{font-size:14.8px;color:#3d4959;margin-bottom:16px;text-align:justify}
+.hdys-prose p strong{color:var(--hdys-ink);font-weight:700}
+.hdys-prose h3{font-size:17px;margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--hdys-accent);line-height:1.5}
+.hdys-prose-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.hdys-prose-tags span{background:#f0f3f7;color:#4d5a6b;font-size:12px;padding:5px 12px;border-radius:99px;border:1px solid var(--hdys-line)}
+
+/* ============ 焦点内容 ============ */
+.hdys-focus{background:var(--hdys-paper)}
+.hdys-focus-grid{display:grid;grid-template-columns:1.38fr 1fr;gap:22px;align-items:stretch}
+.hdys-focus-main{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--hdys-shadow);background:#16243a;min-height:340px}
+.hdys-focus-main img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s}
+.hdys-focus-main:hover img{transform:scale(1.04)}
+.hdys-focus-main-body{
+  position:absolute;inset:auto 0 0 0;padding:26px;color:#fff;
+  background:linear-gradient(0deg,rgba(9,15,25,.94) 0%,rgba(9,15,25,.55) 62%,transparent 100%);
+}
+.hdys-focus-main-body h3{font-size:clamp(19px,2.2vw,25px);line-height:1.4;margin:10px 0 8px}
+.hdys-focus-main-body p{font-size:13.5px;color:#c8d4e2;max-width:520px}
+.hdys-chip{
+  display:inline-block;font-size:11.5px;letter-spacing:.1em;padding:4px 10px;border-radius:99px;
+  background:rgba(255,107,61,.92);color:#fff;font-weight:600;
+}
+.hdys-chip-soft{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.26)}
+.hdys-focus-side{display:grid;grid-template-rows:repeat(2,1fr);gap:22px}
+.hdys-focus-card{
+  display:grid;grid-template-columns:132px 1fr;gap:16px;background:#fff;border-radius:14px;padding:14px;
+  box-shadow:var(--hdys-shadow);border:1px solid var(--hdys-line);transition:transform .2s,box-shadow .2s;
+}
+.hdys-focus-card:hover{transform:translateY(-3px);box-shadow:var(--hdys-shadow-lift)}
+.hdys-focus-thumb{border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:#dde4ec}
+.hdys-focus-thumb img{width:100%;height:100%;object-fit:cover}
+.hdys-focus-card h4{font-size:14.5px;line-height:1.5;margin-bottom:6px}
+.hdys-meta{font-size:11.5px;color:var(--hdys-muted);display:flex;gap:12px;flex-wrap:wrap}
+
+/* ============ 视频卡片流 ============ */
+.hdys-feed{background:#fff}
+.hdys-tagbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.hdys-tagbar button{
+  font-size:13px;padding:7px 16px;border-radius:99px;border:1px solid var(--hdys-line);
+  background:#fff;color:#4d5a6b;transition:all .18s;
+}
+.hdys-tagbar button:hover{border-color:var(--hdys-accent);color:var(--hdys-accent-deep)}
+.hdys-tagbar button.is-on{background:var(--hdys-ink);color:#fff;border-color:var(--hdys-ink)}
+.hdys-video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.hdys-video-card{
+  background:#fff;border:1px solid var(--hdys-line);border-radius:16px;overflow:hidden;
+  transition:transform .22s,box-shadow .22s;display:flex;flex-direction:column;
+}
+.hdys-video-card:hover{transform:translateY(-4px);box-shadow:var(--hdys-shadow-lift)}
+.hdys-video-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e6ebf1}
+.hdys-video-cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.hdys-video-card:hover .hdys-video-cover img{transform:scale(1.06)}
+.hdys-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.9);
+  display:grid;place-items:center;color:var(--hdys-ink);
+  box-shadow:0 6px 18px rgba(0,0,0,.24);opacity:0;transition:opacity .22s,transform .22s;
+}
+.hdys-video-card:hover .hdys-play{opacity:1;transform:translate(-50%,-50%) scale(1.05)}
+.hdys-play svg{width:16px;height:16px;margin-left:2px}
+.hdys-video-cover-tags{position:absolute;left:10px;top:10px;display:flex;gap:6px}
+.hdys-mini-tag{
+  font-size:10.5px;padding:3px 8px;border-radius:6px;background:rgba(15,23,36,.72);color:#fff;
+  backdrop-filter:blur(4px);letter-spacing:.04em;
+}
+.hdys-video-body{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1}
+.hdys-video-body h3{font-size:15px;line-height:1.5;margin-bottom:7px}
+.hdys-video-body .hdys-video-desc{font-size:12.5px;color:var(--hdys-muted);margin-bottom:11px;flex:1}
+.hdys-video-author{display:flex;align-items:center;gap:8px;margin-bottom:11px;font-size:12px;color:#556274}
+.hdys-avatar{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;flex:0 0 auto}
+.hdys-av-1{background:linear-gradient(140deg,#ff6b3d,#e04e22)}
+.hdys-av-2{background:linear-gradient(140deg,#3cc8c8,#1f9c9c)}
+.hdys-av-3{background:linear-gradient(140deg,#5d7bd5,#3b57b0)}
+.hdys-av-4{background:linear-gradient(140deg,#b06bd6,#7d43a8)}
+.hdys-av-5{background:linear-gradient(140deg,#d6a04a,#a87a26)}
+.hdys-av-6{background:linear-gradient(140deg,#4aa96c,#2f7a4b)}
+.hdys-video-actions{display:flex;align-items:center;gap:8px;border-top:1px solid var(--hdys-line);padding-top:11px;flex-wrap:wrap}
+.hdys-act{
+  display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:5px 10px;border-radius:8px;
+  border:1px solid var(--hdys-line);color:#556274;transition:all .16s;background:#fff;
+}
+.hdys-act:hover{border-color:var(--hdys-accent);color:var(--hdys-accent-deep)}
+.hdys-act svg{width:13px;height:13px}
+.hdys-act.is-liked{background:#fff0ea;border-color:#ffc2ad;color:var(--hdys-accent-deep)}
+.hdys-act.is-saved{background:#eaf7f7;border-color:#a8e0e0;color:#1f8b8b}
+
+/* ============ 专题 ============ */
+.hdys-topics{background:linear-gradient(180deg,#0f1724,#1a2b42);color:#e9eff7}
+.hdys-topics .hdys-section-head p{color:#a9b9cc}
+.hdys-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.hdys-topic-card{
+  border-radius:16px;overflow:hidden;background:#17263b;border:1px solid rgba(255,255,255,.1);
+  transition:transform .22s,border-color .22s;
+}
+.hdys-topic-card:hover{transform:translateY(-4px);border-color:rgba(255,107,61,.5)}
+.hdys-topic-cover{aspect-ratio:16/9;overflow:hidden;position:relative}
+.hdys-topic-cover img{width:100%;height:100%;object-fit:cover}
+.hdys-topic-status{
+  position:absolute;right:10px;top:10px;font-size:10.5px;padding:3px 9px;border-radius:6px;
+  background:rgba(60,200,200,.92);color:#08211f;font-weight:700;letter-spacing:.04em;
+}
+.hdys-topic-card-body{padding:17px 18px 19px}
+.hdys-topic-card-body h3{font-size:15.5px;margin-bottom:8px;color:#fff}
+.hdys-topic-card-body p{font-size:12.8px;color:#a5b6ca;margin-bottom:12px}
+.hdys-topic-meta{font-size:11.5px;color:#7f93aa;display:flex;gap:14px;border-top:1px dashed rgba(255,255,255,.14);padding-top:10px}
+
+/* ============ 创作者矩阵 ============ */
+.hdys-creators{background:#fff}
+.hdys-creator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.hdys-creator-card{
+  border:1px solid var(--hdys-line);border-radius:16px;padding:22px;background:#fff;
+  transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;
+}
+.hdys-creator-card::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--hdys-accent),var(--hdys-cyan));
+}
+.hdys-creator-card:hover{transform:translateY(-4px);box-shadow:var(--hdys-shadow-lift)}
+.hdys-creator-top{display:flex;align-items:center;gap:12px;margin-bottom:13px}
+.hdys-creator-avatar{
+  width:50px;height:50px;border-radius:14px;display:grid;place-items:center;
+  font-size:19px;font-weight:800;color:#fff;flex:0 0 auto;
+}
+.hdys-creator-name{font-size:15.5px;font-weight:700}
+.hdys-creator-field{font-size:12px;color:var(--hdys-accent-deep);letter-spacing:.04em}
+.hdys-creator-card p{font-size:13px;color:#556274;margin-bottom:14px;min-height:58px}
+.hdys-creator-stats{display:flex;gap:20px;border-top:1px solid var(--hdys-line);padding-top:12px}
+.hdys-creator-stats div{font-size:11.5px;color:var(--hdys-muted)}
+.hdys-creator-stats b{display:block;font-size:15px;color:var(--hdys-ink);font-weight:700}
+.hdys-creator-link{margin-left:auto;font-size:12px;color:var(--hdys-accent-deep);align-self:center}
+.hdys-creator-link:hover{text-decoration:underline}
+
+/* ============ 作品墙 ============ */
+.hdys-wall{background:var(--hdys-paper)}
+.hdys-wall-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-rows:154px}
+.hdys-wall-item{
+  border-radius:13px;overflow:hidden;position:relative;background:#dde4ec;
+  transition:transform .22s,box-shadow .22s;
+}
+.hdys-wall-item:hover{transform:translateY(-3px);box-shadow:var(--hdys-shadow-lift)}
+.hdys-wall-item img{width:100%;height:100%;object-fit:cover}
+.hdys-wall-item figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 13px 11px;font-size:12px;color:#fff;
+  background:linear-gradient(0deg,rgba(9,15,25,.88),transparent);line-height:1.45;
+}
+.hdys-wall-item.is-wide{grid-column:span 2}
+.hdys-wall-item.is-tall{grid-row:span 2}
+.hdys-wall-item.is-big{grid-column:span 2;grid-row:span 2}
+
+/* ============ 用户评价 ============ */
+.hdys-voices{background:#fff}
+.hdys-voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hdys-voice-card{
+  background:#f7f9fb;border:1px solid var(--hdys-line);border-radius:15px;padding:22px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.hdys-voice-quote{font-size:13.8px;color:#3d4959;line-height:1.8;flex:1}
+.hdys-voice-quote::before{content:"“";font-size:30px;color:var(--hdys-accent);line-height:0;vertical-align:-8px;margin-right:3px;font-family:Georgia,serif}
+.hdys-voice-user{display:flex;align-items:center;gap:10px;border-top:1px dashed var(--hdys-line);padding-top:12px}
+.hdys-voice-user b{display:block;font-size:13px;font-weight:700}
+.hdys-voice-user span{font-size:11.5px;color:var(--hdys-muted)}
+
+/* ============ 创作灵感 / 工具 ============ */
+.hdys-tools{background:linear-gradient(160deg,#16243a,#0f1724);color:#e8eef6}
+.hdys-tools .hdys-eyebrow{color:#ffb79c}
+.hdys-tools .hdys-eyebrow::before{background:var(--hdys-accent)}
+.hdys-tools .hdys-section-head p{color:#a9b9cc}
+.hdys-tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hdys-tool-card{
+  border-radius:15px;padding:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  transition:background .2s,border-color .2s;
+}
+.hdys-tool-card:hover{background:rgba(255,255,255,.09);border-color:rgba(60,200,200,.4)}
+.hdys-tool-icon{
+  width:40px;height:40px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;
+  background:rgba(255,107,61,.18);color:var(--hdys-accent);
+}
+.hdys-tool-icon svg{width:19px;height:19px}
+.hdys-tool-card h3{font-size:15px;margin-bottom:8px;color:#fff}
+.hdys-tool-card p{font-size:12.8px;color:#a5b6ca;margin-bottom:12px}
+.hdys-tool-card button{
+  font-size:12px;color:#9fd8d8;border-bottom:1px dashed rgba(159,216,216,.5);padding-bottom:2px;
+}
+.hdys-tool-card button:hover{color:#fff;border-color:#fff}
+
+/* ============ 企业动态 ============ */
+.hdys-news{background:#fff}
+.hdys-news-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--hdys-line)}
+.hdys-news-item{
+  display:grid;grid-template-columns:104px 1fr auto;gap:22px;align-items:center;
+  padding:20px 6px;border-bottom:1px solid var(--hdys-line);transition:background .18s;
+}
+.hdys-news-item:hover{background:#f8fafc}
+.hdys-news-date{font-size:12.5px;color:var(--hdys-accent-deep);font-weight:700;letter-spacing:.02em;line-height:1.5}
+.hdys-news-date span{display:block;font-size:11px;color:var(--hdys-muted);font-weight:400}
+.hdys-news-item h3{font-size:14.8px;line-height:1.55;margin-bottom:4px}
+.hdys-news-item p{font-size:12.5px;color:var(--hdys-muted)}
+.hdys-news-arrow{font-size:13px;color:#9aa7b6}
+
+/* ============ 合作品牌 ============ */
+.hdys-partners{background:var(--hdys-paper);padding:48px 0}
+.hdys-partner-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.hdys-partner{
+  flex:1 1 168px;min-width:150px;background:#fff;border:1px solid var(--hdys-line);border-radius:12px;
+  padding:18px 16px;text-align:center;transition:border-color .2s,transform .2s;
+}
+.hdys-partner:hover{border-color:var(--hdys-accent);transform:translateY(-2px)}
+.hdys-partner b{display:block;font-size:14px;margin-bottom:3px}
+.hdys-partner span{font-size:11.5px;color:var(--hdys-muted);letter-spacing:.06em}
+
+/* ============ FAQ ============ */
+.hdys-faq{background:#fff}
+.hdys-faq-list{max-width:860px;display:flex;flex-direction:column;gap:10px}
+.hdys-faq-item{border:1px solid var(--hdys-line);border-radius:12px;background:#fbfcfd;overflow:hidden}
+.hdys-faq-item summary{
+  padding:16px 20px;font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.hdys-faq-item summary::-webkit-details-marker{display:none}
+.hdys-faq-item summary::after{content:"+";font-size:20px;color:var(--hdys-accent);font-weight:400;line-height:1;transition:transform .2s}
+.hdys-faq-item[open] summary::after{content:"−"}
+.hdys-faq-item p{padding:0 20px 18px;font-size:13.5px;color:#556274;line-height:1.8}
+
+/* ============ 联系 / 投稿 ============ */
+.hdys-contact{background:linear-gradient(140deg,#0f1724,#213550);color:#e9eff7}
+.hdys-contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.hdys-contact h2{font-size:clamp(24px,3.2vw,34px);line-height:1.36;margin-bottom:16px;color:#fff}
+.hdys-contact h2 em{font-style:normal;color:var(--hdys-accent)}
+.hdys-contact p{font-size:14.5px;color:#a9b9cc;margin-bottom:22px;max-width:520px}
+.hdys-contact-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hdys-contact-panel{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:26px;
+}
+.hdys-contact-panel h3{font-size:15px;color:#fff;margin-bottom:14px}
+.hdys-contact-panel li{display:flex;gap:11px;font-size:13px;color:#b9c9db;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.12)}
+.hdys-contact-panel li:last-child{border-bottom:none}
+.hdys-contact-panel li b{color:#7fd3d3;font-weight:600;flex:0 0 64px}
+
+/* ============ 页脚 ============ */
+.hdys-footer{background:#0a121e;color:#8b9cb0;padding:52px 0 26px;font-size:13px}
+.hdys-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;margin-bottom:34px}
+.hdys-footer h4{font-size:13.5px;color:#e1e9f2;margin-bottom:14px;letter-spacing:.04em}
+.hdys-footer p{font-size:12.5px;color:#7c8ea3;line-height:1.9;margin-bottom:10px}
+.hdys-footer li{padding:5px 0;font-size:12.5px}
+.hdys-footer a:hover{color:#fff}
+.hdys-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.hdys-footer-brand .hdys-brand-mark{width:32px;height:32px;border-radius:9px}
+.hdys-footer-brand strong{color:#fff;font-size:15px}
+.hdys-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-size:12px;color:#6e8096;
+}
+
+/* ============ 弹窗 / Toast / 回顶 ============ */
+.hdys-modal-mask{
+  position:fixed;inset:0;background:rgba(10,18,30,.6);backdrop-filter:blur(4px);z-index:300;
+  display:none;align-items:center;justify-content:center;padding:22px;
+}
+.hdys-modal-mask.is-open{display:flex;animation:hdysFade .2s ease}
+.hdys-modal{
+  background:#fff;border-radius:16px;max-width:480px;width:100%;padding:26px;position:relative;
+  box-shadow:0 30px 80px rgba(0,0,0,.4);animation:hdysPop .24s ease;
+}
+.hdys-modal h3{font-size:18px;margin-bottom:8px}
+.hdys-modal-desc{font-size:13px;color:var(--hdys-muted);margin-bottom:16px}
+.hdys-modal-close{
+  position:absolute;right:16px;top:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  background:#f1f4f7;color:#5a6a7d;font-size:16px;
+}
+.hdys-modal-close:hover{background:#e4e9ef}
+.hdys-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.hdys-share-row button{
+  flex:1 1 96px;padding:11px 10px;border-radius:10px;background:#f5f7f9;border:1px solid var(--hdys-line);
+  font-size:13px;color:#3d4959;transition:all .18s;
+}
+.hdys-share-row button:hover{background:var(--hdys-ink);color:#fff;border-color:var(--hdys-ink)}
+.hdys-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);background:rgba(15,23,36,.94);
+  color:#fff;font-size:13px;padding:11px 22px;border-radius:99px;z-index:500;opacity:0;
+  pointer-events:none;transition:opacity .25s,transform .25s;box-shadow:0 12px 30px rgba(0,0,0,.3);
+}
+.hdys-toast.is-show{opacity:1;transform:translate(-50%,0)}
+.hdys-backtop{
+  position:fixed;right:24px;bottom:28px;width:44px;height:44px;border-radius:50%;
+  background:var(--hdys-ink);color:#fff;display:grid;place-items:center;z-index:200;
+  box-shadow:0 10px 26px rgba(15,23,36,.3);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+  transform:translateY(10px);
+}
+.hdys-backtop.is-show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.hdys-backtop svg{width:16px;height:16px}
+
+@keyframes hdysFade{from{opacity:0}to{opacity:1}}
+@keyframes hdysPop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+
+/* ============ 响应式 ============ */
+@media (max-width:1080px){
+  .hdys-hero-inner{grid-template-columns:1fr;gap:38px;padding:48px 0 58px}
+  .hdys-hero-mini{display:none}
+  .hdys-about-grid{grid-template-columns:1fr;gap:30px}
+  .hdys-about-side{position:static}
+  .hdys-focus-grid{grid-template-columns:1fr}
+  .hdys-focus-side{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .hdys-video-grid{grid-template-columns:repeat(2,1fr)}
+  .hdys-topic-grid,.hdys-creator-grid,.hdys-voice-grid,.hdys-tool-grid{grid-template-columns:repeat(2,1fr)}
+  .hdys-wall-grid{grid-template-columns:repeat(3,1fr)}
+  .hdys-contact-grid{grid-template-columns:1fr;gap:28px}
+  .hdys-footer-grid{grid-template-columns:1fr 1fr}
+  .hdys-nav{display:none}
+  .hdys-burger{display:grid}
+  .hdys-header-submit{display:none}
+}
+@media (max-width:720px){
+  .hdys-header-inner{gap:12px;height:62px}
+  .hdys-search input{width:132px;padding-right:34px}
+  .hdys-search input:focus{width:158px}
+  .hdys-search-feedback{width:236px}
+  .hdys-section{padding:50px 0}
+  .hdys-section-head{margin-bottom:26px}
+  .hdys-hero-inner{padding:38px 0 46px}
+  .hdys-stats{grid-template-columns:repeat(3,1fr);gap:8px}
+  .hdys-focus-side{grid-template-columns:1fr}
+  .hdys-focus-card{grid-template-columns:108px 1fr;gap:12px}
+  .hdys-video-grid{grid-template-columns:1fr}
+  .hdys-topic-grid,.hdys-creator-grid,.hdys-voice-grid,.hdys-tool-grid{grid-template-columns:1fr}
+  .hdys-wall-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:132px}
+  .hdys-news-item{grid-template-columns:1fr;gap:6px}
+  .hdys-news-arrow{display:none}
+  .hdys-footer-grid{grid-template-columns:1fr;gap:24px}
+  .hdys-partner{flex:1 1 120px;min-width:110px}
+  .hdys-backtop{right:16px;bottom:18px}
+  .hdys-announce-inner{padding:8px 16px}
+  .hdys-announce-more{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="hdys-sticky-wrap">
+  <!-- 公告条 -->
+  <div class="hdys-announce">
+    <div class="hdys-announce-inner">
+      <span class="hdys-announce-badge">官方发布</span>
+      <div class="hdys-announce-ticker">
+        <div class="hdys-announce-track">
+          <b>11月18日</b>&nbsp;花都影视hdys「城市光影计划」第二季正式报名，新增12个拍摄基地与4条创作者扶持通道。
+        </div>
+      </div>
+      <a class="hdys-announce-more" href="#hdys-news">全部动态 ›</a>
+    </div>
+  </div>
+
+  <!-- 页头 -->
+  <header class="hdys-header">
+    <div class="hdys-header-inner">
+      <a class="hdys-brand" href="#hdys-top" aria-label="花都影视hdys 首页">
+        <span class="hdys-brand-mark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 L19 12 L8 19 Z" fill="#ff6b3d"/></svg>
+        </span>
+        <span class="hdys-brand-text">
+          <strong>花都影视hdys</strong>
+          <span>HUADU FILM &amp; VIDEO</span>
+        </span>
+      </a>
+      <nav class="hdys-nav" aria-label="主导航">
+        <a href="#hdys-top" class="is-active">首页</a>
+        <a href="#hdys-focus">视频焦点</a>
+        <a href="#hdys-topics">专题企划</a>
+        <a href="#hdys-creators">创作者</a>
+        <a href="#hdys-news">企业动态</a>
+        <a href="#hdys-faq">帮助中心</a>
+        <a href="#hdys-contact">联系我们</a>
+      </nav>
+      <div class="hdys-header-tools">
+        <div class="hdys-search">
+          <input id="hdys-search-input" type="search" placeholder="搜索作品 / 创作者 / 专题" aria-label="站内搜索">
+          <button id="hdys-search-btn" type="button" aria-label="搜索">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+          </button>
+          <div class="hdys-search-feedback" id="hdys-search-feedback" role="status" aria-live="polite"></div>
+        </div>
+        <a class="hdys-btn hdys-btn-primary hdys-header-submit" href="#hdys-contact" id="hdys-submit-open">投稿入口</a>
+        <button class="hdys-burger" id="hdys-burger" type="button" aria-label="展开导航" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+    <div class="hdys-mobile-panel" id="hdys-mobile-panel">
+      <a href="#hdys-top">首页</a>
+      <a href="#hdys-focus">视频焦点</a>
+      <a href="#hdys-feed">热门内容</a>
+      <a href="#hdys-topics">专题企划</a>
+      <a href="#hdys-creators">创作者</a>
+      <a href="#hdys-wall">影像墙</a>
+      <a href="#hdys-news">企业动态</a>
+      <a href="#hdys-faq">帮助中心</a>
+      <a href="#hdys-contact">联系与投稿</a>
+    </div>
+  </header>
+</div>
+
+<!-- ============ 首屏 ============ -->
+<section class="hdys-hero" id="hdys-top">
+  <div class="hdys-container hdys-hero-inner">
+    <div class="hdys-hero-copy">
+      <span class="hdys-hero-tagline"><i></i>花都影视hdys 官方网站 · 原创影像内容生态</span>
+      <h1 class="hdys-h1">花都影视hdys<br><em>让每段影像</em>被认真对待</h1>
+      <p class="hdys-hero-lead">
+        我们是一家深耕影像内容领域的视频品牌企业，以原创为核心、以品质为底线，为创作者提供从策划、拍摄到发行的完整支持，也为观众呈现真实、温暖、有力量的日常影像。
+      </p>
+      <div class="hdys-hero-actions">
+        <a class="hdys-btn hdys-btn-primary" href="#hdys-feed">浏览精品内容</a>
+        <a class="hdys-btn hdys-btn-ghost" href="#hdys-creators">认识创作者</a>
+      </div>
+      <div class="hdys-stats">
+        <div>
+          <div class="hdys-stat-num" data-count="12600">0<small>+</small></div>
+          <div class="hdys-stat-label">原创作品入库</div>
+        </div>
+        <div>
+          <div class="hdys-stat-num" data-count="860">0<small>位</small></div>
+          <div class="hdys-stat-label">签约与合作创作者</div>
+        </div>
+        <div>
+          <div class="hdys-stat-num" data-count="9">0<small>年</small></div>
+          <div class="hdys-stat-label">持续运营时间</div>
+        </div>
+      </div>
+    </div>
+    <div class="hdys-hero-visual">
+      <figure class="hdys-hero-cover">
+        <img alt="花都影视hdys 品牌主视觉：黄昏城市天际线与拍摄团队剪影" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='sky1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23233a58'/%3E%3Cstop offset='0.55' stop-color='%23a8553a'/%3E%3Cstop offset='1' stop-color='%23f2a35e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23sky1)'/%3E%3Ccircle cx='610' cy='182' r='58' fill='%23ffd9a8' opacity='0.9'/%3E%3Cpath d='M0 380 L90 340 L150 366 L220 320 L290 356 L360 306 L430 348 L500 300 L575 344 L650 308 L730 352 L800 322 L800 500 L0 500 Z' fill='%23172133' opacity='0.85'/%3E%3Crect x='120' y='404' width='560' height='18' rx='4' fill='%230f1724'/%3E%3Cpath d='M160 422 L160 470 M300 422 L300 470 M440 422 L440 470 M580 422 L580 470' stroke='%230f1724' stroke-width='10'/%3E%3Ccircle cx='205' cy='424' r='15' fill='%23ff6b3d'/%3E%3Crect x='230' y='398' width='52' height='26' rx='5' fill='%23223'/%3E%3Cpath d='M292 402 L318 414 L292 426 Z' fill='%23ffb79c'/%3E%3C/svg%3E">
+        <span class="hdys-hero-cover-badge">品牌主视觉 · 花都夜色</span>
+      </figure>
+      <figure class="hdys-hero-mini">
+        <img alt="花都影视hdys 纪录短片《北岸晨雾》封面" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23cfe0df'/%3E%3Cpath d='M0 128 Q70 96 140 126 T320 118 L320 180 L0 180 Z' fill='%236f9a97'/%3E%3Cpath d='M0 148 Q90 124 180 146 T320 140 L320 180 L0 180 Z' fill='%234a706e'/%3E%3Ccircle cx='248' cy='52' r='22' fill='%23ffffff' opacity='0.75'/%3E%3Cpath d='M28 74 h50 v34 h-50 z' fill='%233d5a58' opacity='0.55'/%3E%3C/svg%3E">
+        <figcaption>纪录短片《北岸晨雾》· 本周焦点</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 品牌解读长文 ============ -->
+<section class="hdys-section hdys-about" id="hdys-about">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">品牌定位与内容解析</span>
+      <h2 class="hdys-h2">花都影视hdys 是谁：一家把影像当作长期事业的视频品牌企业</h2>
+      <p>从内容立项到成片发布，我们用一套可复用的流程保证品质，也用一个开放的平台姿态容纳多元表达。</p>
+    </div>
+    <div class="hdys-about-grid">
+      <aside class="hdys-about-side">
+        <div class="hdys-about-card">
+          <h3>品牌档案</h3>
+          <p>花都影视hdys 以原创影像为核心业务，覆盖纪录、剧情短片、生活方式与城市影像四条内容线。</p>
+          <ul class="hdys-about-list">
+            <li><b>成立</b>2017年，持续运营至今</li>
+            <li><b>总部</b>华南 · 花都创意园</li>
+            <li><b>内容线</b>纪录 / 剧情 / 生活 / 城市</li>
+            <li><b>团队</b>策划、摄制、后期、发行完整链路</li>
+            <li><b>理念</b>真实、温暖、有力量</li>
+          </ul>
+        </div>
+      </aside>
+      <div class="hdys-prose">
+        <p><strong>花都影视hdys 官方网站</strong>所呈现的，不只是一个品牌的门面，而是我们对影像这件事的完整理解。我们相信，影像的价值并不取决于时长的长短，而取决于是不是有人真正在看、真正被触动。因此，从成立第一天起，花都影视hdys 就把“可被反复观看的精品内容”作为唯一的验收标准，宁可少发一条，也不愿意让任何一条作品因为赶进度而降低品质。</p>
+        <p>作为一家深耕影像垂直领域的企业，我们把内容生产拆成四个彼此咬合的环节：<strong>选题</strong>决定这段影像是否值得被拍，<strong>拍摄</strong>决定它是否具备可信的质感，<strong>后期</strong>决定节奏与情绪是否成立，<strong>发行与运营</strong>决定它能不能遇到对的人。很多团队只做其中一段，而我们选择全部自己做，因为我们希望创作者在花都影视hdys 得到的不是一次性的服务，而是一整套可以持续复用的能力。</p>
+        <h3>为什么我们坚持“原创”和“正版”</h3>
+        <p>在内容供给极其充裕的今天，观众真正稀缺的其实是信任。原创意味着每一帧都来自我们自己的判断，正版意味着素材、音乐、肖像的每一份授权都可追溯。花都影视hdys 建立了内部素材授权台账，所有商用音乐、字体、影像素材均需登记来源与授权期限，这套看起来繁琐的流程，让我们的内容生态具备了长期合作的基础，也让合作品牌敢于把重要项目交到我们手里。</p>
+        <p>我们同时把“高清”当成一项基础承诺。平台上的精品内容统一按高码率标准交付，重要专题提供更高规格的母版备份。对创作者而言，这意味着他们辛苦拍下的细节不会被压缩损耗；对观众而言，意味着在大屏上观看时依然能看清光影的层次。品质感从来不是形容词，而是一连串可以被检查的技术参数。</p>
+        <h3>一个有温度的社区，而不是一个冷冰冰的分发管道</h3>
+        <p>花都影视hdys 的社区属性，体现在我们如何对待每一位创作者。新人上传的第一条作品，会有编辑逐条给出反馈；入选专题的作品，会得到从封面、标题到简介的完整优化建议；表现突出的创作者则进入签约池，获得拍摄资金、设备支持与发行资源。我们并不追求创作者数量的高速膨胀，而更在意留下来的创作者是否真的在成长。这种偏慢的做法，反而让社区的粘性更强，也让“用户首选”这四个字有了具体的注脚。</p>
+        <p>在内容方向上，花都影视hdys 保持多元与包容。我们既拍摄城市更新中的老街区，也记录年轻人在深夜厨房里做的一碗面；既关注行业观察类的深度访谈，也愿意为一个普通人的毕业作品留出位置。这种多元不是为了凑数，而是因为我们相信真实的生活本身就是复调的，任何单一视角都无法覆盖它的全部。</p>
+        <h3>面向未来的内容生态</h3>
+        <p>接下来的一年，花都影视hdys 会把重心放在三件事上：一是继续扩大原创自制比例，让品牌故事与人物访谈两条线形成稳定的更新节奏；二是把创作者扶持做得更细，包括开设剪辑工作坊、开放部分素材库、建立作品互评机制；三是把线上内容与线下活动打通，通过比赛、报名、投票等方式，让社区里的互动真正落到现实场景中。我们希望通过这些具体动作，把“持续运营”从一句口号变成可以被验证的事实。</p>
+        <p>如果你也在做影像，或者只是喜欢在周末安静地看完一条好片，花都影视hdys 都欢迎你留下来。这里没有夸张的承诺，只有一条一条被认真做完的作品，以及一群愿意把这件事做久的人。</p>
+        <div class="hdys-prose-tags">
+          <span>原创影像</span><span>精品内容</span><span>内容生态</span><span>创作者扶持</span>
+          <span>品牌故事</span><span>行业观察</span><span>品质承诺</span><span>社区共建</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 焦点内容 ============ -->
+<section class="hdys-section hdys-focus" id="hdys-focus">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">视频焦点</span>
+      <h2 class="hdys-h2">本周焦点：三条值得留到最后字幕的影像</h2>
+      <p>编辑团队每周从新入库作品中精选，兼顾叙事完整度与影像质感，作为本期的重点推荐。</p>
+    </div>
+    <div class="hdys-focus-grid">
+      <article class="hdys-focus-main" data-card="focus">
+        <img alt="焦点作品《北岸晨雾》封面：晨雾中的江岸与早行人" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 460'%3E%3Cdefs%3E%3ClinearGradient id='fog1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23dfe9ea'/%3E%3Cstop offset='1' stop-color='%2389a7a6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='760' height='460' fill='url(%23fog1)'/%3E%3Ccircle cx='580' cy='110' r='46' fill='%23ffffff' opacity='0.6'/%3E%3Cpath d='M0 300 Q120 250 240 292 T480 280 T760 300 L760 460 L0 460 Z' fill='%235b7d7b' opacity='0.8'/%3E%3Cpath d='M0 352 Q160 312 320 348 T760 336 L760 460 L0 460 Z' fill='%233a5655'/%3E%3Crect x='86' y='252' width='10' height='72' fill='%232d4443'/%3E%3Ccircle cx='91' cy='242' r='12' fill='%232d4443'/%3E%3Cpath d='M420 300 l40 -16 l40 16 l-40 12 z' fill='%23e8efef' opacity='0.7'/%3E%3C/svg%3E">
+        <div class="hdys-focus-main-body">
+          <span class="hdys-chip">纪录短片</span>
+          <h3>《北岸晨雾》：一条江，和三百个早起的人</h3>
+          <p>跟拍九十天，记录北岸渡口从凌晨四点到七点的日常。没有旁白，全部用现场声与人物原话完成叙事。</p>
+          <div class="hdys-meta" style="color:#a9bacc;margin-top:10px">
+            <span>导演 · 沈知远</span><span>片长 24:16</span><span>11月12日 官方发布</span>
+          </div>
+        </div>
+      </article>
+      <div class="hdys-focus-side">
+        <article class="hdys-focus-card" data-card="focus">
+          <div class="hdys-focus-thumb">
+            <img alt="焦点作品《第七次搬家》封面：纸箱堆叠的出租屋客厅" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23e7dfd2'/%3E%3Crect x='26' y='84' width='74' height='62' fill='%23b8956a'/%3E%3Crect x='110' y='62' width='86' height='84' fill='%23caa87b'/%3E%3Crect x='206' y='94' width='62' height='52' fill='%23a8845c'/%3E%3Crect x='26' y='74' width='74' height='10' fill='%23e0d2bd'/%3E%3Crect x='110' y='52' width='86' height='10' fill='%23e0d2bd'/%3E%3Cpath d='M0 146 L320 146 L320 180 L0 180 Z' fill='%23c9b79e'/%3E%3Ccircle cx='252' cy='40' r='16' fill='%23ffd9a8'/%3E%3C/svg%3E">
+          </div>
+          <div>
+            <h4>《第七次搬家》：关于租住与归属的一次坦白</h4>
+            <div class="hdys-meta"><span>剧情短片</span><span>18:40</span></div>
+          </div>
+        </article>
+        <article class="hdys-focus-card" data-card="focus">
+          <div class="hdys-focus-thumb">
+            <img alt="焦点作品《灶台边的两个人》封面：厨房里升起的蒸汽与炒锅" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23313a42'/%3E%3Crect x='0' y='126' width='320' height='54' fill='%23232a30'/%3E%3Ccircle cx='118' cy='112' r='34' fill='%23495057'/%3E%3Ccircle cx='118' cy='112' r='23' fill='%23e0dcd2'/%3E%3Cpath d='M118 92 q14 20 0 40' stroke='%23b0a898' stroke-width='3' fill='none'/%3E%3Cpath d='M96 78 q10 -18 0 -34 M126 74 q10 -18 0 -32 M156 80 q10 -18 0 -30' stroke='%23d8d2c6' stroke-width='4' fill='none' opacity='0.55'/%3E%3Crect x='214' y='86' width='70' height='40' rx='6' fill='%23804b32'/%3E%3C/svg%3E">
+          </div>
+          <div>
+            <h4>《灶台边的两个人》：父亲、锅铲和一场沉默的和解</h4>
+            <div class="hdys-meta"><span>生活记录</span><span>12:05</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 热门内容流 ============ -->
+<section class="hdys-section hdys-feed" id="hdys-feed">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">热门内容</span>
+      <h2 class="hdys-h2">正在被反复观看的精品内容</h2>
+      <p>按标签筛选你关心的方向，点击卡片上的互动按钮可以点赞或收藏，数据会实时更新。</p>
+    </div>
+    <div class="hdys-tagbar" id="hdys-tagbar" role="group" aria-label="内容标签筛选">
+      <button type="button" class="is-on" data-filter="all">全部</button>
+      <button type="button" data-filter="record">日常记录</button>
+      <button type="button" data-filter="city">城市探索</button>
+      <button type="button" data-filter="skill">经验分享</button>
+      <button type="button" data-filter="behind">创作幕后</button>
+      <button type="button" data-filter="story">人物访谈</button>
+    </div>
+    <div class="hdys-video-grid" id="hdys-video-grid">
+
+      <article class="hdys-video-card" data-kind="city">
+        <div class="hdys-video-cover">
+          <img alt="《老城区的一天》视频封面：骑楼下穿行的行人" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23c7d3da'/%3E%3Crect x='0' y='0' width='400' height='96' fill='%23e4ecf1'/%3E%3Cpath d='M20 96 h74 v129 h-74 z' fill='%23808f9a'/%3E%3Cpath d='M110 96 h86 v129 h-86 z' fill='%236b7a86'/%3E%3Cpath d='M212 96 h70 v129 h-70 z' fill='%2391a0aa'/%3E%3Cpath d='M298 96 h82 v129 h-82 z' fill='%236b7a86'/%3E%3Cpath d='M0 96 h400 v14 h-400 z' fill='%234d5b66'/%3E%3Ccircle cx='150' cy='160' r='13' fill='%23ff6b3d'/%3E%3Cpath d='M140 196 h20 v29 h-20 z' fill='%23374650'/%3E%3C/svg%3E">
+          <span class="hdys-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="hdys-video-cover-tags"><span class="hdys-mini-tag">城市探索</span></div>
+        </div>
+        <div class="hdys-video-body">
+          <h3>《老城区的一天》：从早市到夜宵摊的十四小时</h3>
+          <p class="hdys-video-desc">用一条时间线串起骑楼下的早市、修鞋铺、凉茶店与夜宵摊，记录老街缓慢但真实的呼吸。</p>
+          <div class="hdys-video-author"><span class="hdys-avatar hdys-av-1">周</span>周行野 · 城市影像作者</div>
+          <div class="hdys-video-actions">
+            <button class="hdys-act" type="button" data-act="like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.5-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.5-7 9-7 9z"/></svg><span data-like-count="1286">1286</span></button>
+            <button class="hdys-act" type="button" data-act="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>收藏</button>
+            <button class="hdys-act" type="button" data-act="share">分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="hdys-video-card" data-kind="skill">
+        <div class="hdys-video-cover">
+          <img alt="《自然光下的访谈拍摄》视频封面：窗边机位与反光板" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23e9eef3'/%3E%3Crect x='0' y='150' width='400' height='75' fill='%23cfd8e0'/%3E%3Crect x='44' y='40' width='130' height='104' fill='%23f7fbfd' stroke='%239fb0bf' stroke-width='5'/%3E%3Cpath d='M44 144 L174 144 L118 210 L0 210 Z' fill='%23f0f6fa' opacity='0.7'/%3E%3Crect x='244' y='92' width='72' height='48' rx='6' fill='%2334404c'/%3E%3Ccircle cx='280' cy='116' r='14' fill='%235d6d7b'/%3E%3Cpath d='M316 100 L352 82 L352 158 L316 140 Z' fill='%2334404c'/%3E%3C/svg%3E">
+          <span class="hdys-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="hdys-video-cover-tags"><span class="hdys-mini-tag">经验分享</span></div>
+        </div>
+        <div class="hdys-video-body">
+          <h3>只用自然光，怎么拍出有质感的访谈</h3>
+          <p class="hdys-video-desc">从窗位选择、反光板角度到白平衡设定，拆解三个可以在家复现的布光方案，附机位示意图。</p>
+          <div class="hdys-video-author"><span class="hdys-avatar hdys-av-2">柯</span>柯望舒 · 摄影指导</div>
+          <div class="hdys-video-actions">
+            <button class="hdys-act" type="button" data-act="like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.5-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.5-7 9-7 9z"/></svg><span data-like-count="2043">2043</span></button>
+            <button class="hdys-act" type="button" data-act="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>收藏</button>
+            <button class="hdys-act" type="button" data-act="share">分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="hdys-video-card" data-kind="record">
+        <div class="hdys-video-cover">
+          <img alt="《阳台上的四季》视频封面：阳台绿植与晾晒衣物" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23dfeaf0'/%3E%3Crect x='0' y='0' width='400' height='70' fill='%23c5d9e4'/%3E%3Crect x='0' y='168' width='400' height='57' fill='%23b9c6ce'/%3E%3Crect x='30' y='150' width='52' height='36' rx='4' fill='%23b5714e'/%3E%3Cpath d='M52 150 q-14 -32 4 -52 q16 22 0 52' fill='%2366a06a'/%3E%3Cpath d='M92 150 q-10 -26 8 -44 q12 20 -2 44' fill='%234f8b55'/%3E%3Crect x='190' y='40' width='120' height='6' rx='3' fill='%2395a4ad'/%3E%3Cpath d='M204 46 h26 v58 h-26 z' fill='%23f2f6f8'/%3E%3Cpath d='M244 46 h34 v44 h-34 z' fill='%23e7987d'/%3E%3Cpath d='M292 46 h20 v52 h-20 z' fill='%23f2f6f8'/%3E%3C/svg%3E">
+          <span class="hdys-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="hdys-video-cover-tags"><span class="hdys-mini-tag">日常记录</span></div>
+        </div>
+        <div class="hdys-video-body">
+          <h3>《阳台上的四季》：三平方米里的十二个月</h3>
+          <p class="hdys-video-desc">固定机位、同一角度、连续拍摄一年，只为看一株薄荷和一面墙的颜色怎样慢慢改变。</p>
+          <div class="hdys-video-author"><span class="hdys-avatar hdys-av-3">林</span>林晚舟 · 生活影像</div>
+          <div class="hdys-video-actions">
+            <button class="hdys-act" type="button" data-act="like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.5-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.5-7 9-7 9z"/></svg><span data-like-count="3117">3117</span></button>
+            <button class="hdys-act" type="button" data-act="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>收藏</button>
+            <button class="hdys-act" type="button" data-act="share">分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="hdys-video-card" data-kind="behind">
+        <div class="hdys-video-cover">
+          <img alt="《一条片子的七十二小时》视频封面：剪辑软件时间线与咖啡杯" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%231f2b38'/%3E%3Crect x='24' y='30' width='352' height='118' rx='6' fill='%23293747'/%3E%3Crect x='40' y='52' width='150' height='9' rx='4' fill='%233cc8c8'/%3E%3Crect x='40' y='72' width='230' height='9' rx='4' fill='%23ff6b3d'/%3E%3Crect x='40' y='92' width='110' height='9' rx='4' fill='%235d7bd5'/%3E%3Crect x='40' y='112' width='190' height='9' rx='4' fill='%236b7a86'/%3E%3Crect x='276' y='52' width='84' height='76' rx='4' fill='%2334404c'/%3E%3Crect x='300' y='168' width='34' height='24' rx='4' fill='%23e8e2d6'/%3E%3Cpath d='M334 174 q16 2 0 14' stroke='%23e8e2d6' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+          <span class="hdys-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="hdys-video-cover-tags"><span class="hdys-mini-tag">创作幕后</span></div>
+        </div>
+        <div class="hdys-video-body">
+          <h3>《一条片子的七十二小时》：从想法到成片的全流程</h3>
+          <p class="hdys-video-desc">完整公开我们内部的工作节奏：脚本会怎么开、素材怎么归档、删掉的第一版为什么被放弃。</p>
+          <div class="hdys-video-author"><span class="hdys-avatar hdys-av-4">花</span>花都影视hdys 制作组</div>
+          <div class="hdys-video-actions">
+            <button class="hdys-act" type="button" data-act="like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.5-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.5-7 9-7 9z"/></svg><span data-like-count="957">957</span></button>
+            <button class="hdys-act" type="button" data-act="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>收藏</button>
+            <button class="hdys-act" type="button" data-act="share">分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="hdys-video-card" data-kind="story">
+        <div class="hdys-video-cover">
+          <img alt="《修表匠的下午》视频封面：工作台上摊开的机芯零件" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23e7dfd0'/%3E%3Crect x='0' y='140' width='400' height='85' fill='%23c9b896'/%3E%3Ccircle cx='186' cy='104' r='54' fill='%23d8cbb2' stroke='%23a8946f' stroke-width='5'/%3E%3Ccircle cx='186' cy='104' r='40' fill='%23f2ecdf'/%3E%3Cpath d='M186 104 L186 74 M186 104 L210 118' stroke='%233a4a56' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='186' cy='104' r='5' fill='%23c0562f'/%3E%3Crect x='276' y='120' width='46' height='12' rx='6' fill='%236c7a83'/%3E%3Crect x='60' y='150' width='54' height='9' rx='4' fill='%2394866c'/%3E%3Crect x='60' y='168' width='34' height='9' rx='4' fill='%2394866c'/%3E%3C/svg%3E">
+          <span class="hdys-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="hdys-video-cover-tags"><span class="hdys-mini-tag">人物访谈</span></div>
+        </div>
+        <div class="hdys-video-body">
+          <h3>《修表匠的下午》：他在同一条街坐了三十四年</h3>
+          <p class="hdys-video-desc">一次不设提纲的长谈，聊手艺、聊价格、聊这条街上消失又重开的店面，也聊他为什么不搬走。</p>
+          <div class="hdys-video-author"><span class="hdys-avatar hdys-av-5">霍</span>霍青禾 · 人物纪录</div>
+          <div class="hdys-video-actions">
+            <button class="hdys-act" type="button" data-act="like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.5-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.5-7 9-7 9z"/></svg><span data-like-count="1834">1834</span></button>
+            <button class="hdys-act" type="button" data-act="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>收藏</button>
+            <button class="hdys-act" type="button" data-act="share">分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="hdys-video-card" data-kind="city">
+        <div class="hdys-video-cover">
+          <img alt="《夜班公交的最后一站》视频封面：夜色中的公交车厢" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23141d2b'/%3E%3Crect x='0' y='150' width='400' height='75' fill='%230e1622'/%3E%3Crect x='52' y='46' width='296' height='110' rx='10' fill='%23243244'/%3E%3Crect x='72' y='64' width='112' height='62' rx='5' fill='%235d7fa3'/%3E%3Crect x='200' y='64' width='128' height='62' rx='5' fill='%233d5470'/%3E%3Ccircle cx='104' cy='176' r='20' fill='%232a3546' stroke='%23586070' stroke-width='4'/%3E%3Ccircle cx='296' cy='176' r='20' fill='%232a3546' stroke='%23586070' stroke-width='4'/%3E%3Ccircle cx='348' cy='58' r='9' fill='%23ffd9a8'/%3E%3C/svg%3E">
+          <span class="hdys-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="hdys-video-cover-tags"><span class="hdys-mini-tag">城市探索</span></div>
+        </div>
+        <div class="hdys-video-body">
+          <h3>《夜班公交的最后一站》：凌晨一点的乘客们</h3>
+          <p class="hdys-video-desc">跟着末班车走完二十九个站，听清洁工、代驾司机与刚下夜班的护士讲他们为什么还不睡。</p>
+          <div class="hdys-video-author"><span class="hdys-avatar hdys-av-6">许</span>许南枝 · 夜间影像</div>
+          <div class="hdys-video-actions">
+            <button class="hdys-act" type="button" data-act="like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.5-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.5-7 9-7 9z"/></svg><span data-like-count="1421">1421</span></button>
+            <button class="hdys-act" type="button" data-act="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 4h12v16l-6-4-6 4z"/></svg>收藏</button>
+            <button class="hdys-act" type="button" data-act="share">分享</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 专题企划 ============ -->
+<section class="hdys-section hdys-topics" id="hdys-topics">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">专题企划</span>
+      <h2 class="hdys-h2">三个正在推进的长线企划</h2>
+      <p>专题是花都影视hdys 的内容骨架。每个企划都有明确的主题边界与更新节奏，欢迎创作者报名参与。</p>
+    </div>
+    <div class="hdys-topic-grid">
+      <article class="hdys-topic-card">
+        <div class="hdys-topic-cover">
+          <img alt="专题《城市光影计划》封面：城市建筑立面与光斑" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%231a2b42'/%3E%3Cpath d='M40 225 L40 90 L110 60 L110 225 Z' fill='%23243a56'/%3E%3Cpath d='M130 225 L130 130 L210 96 L210 225 Z' fill='%232f4869'/%3E%3Cpath d='M230 225 L230 76 L300 110 L300 225 Z' fill='%23243a56'/%3E%3Cpath d='M320 225 L320 140 L392 168 L392 225 Z' fill='%232f4869'/%3E%3Ccircle cx='330' cy='52' r='30' fill='%23ffb79c' opacity='0.85'/%3E%3Cpath d='M0 196 L400 196 L400 225 L0 225 Z' fill='%23ff6b3d' opacity='0.28'/%3E%3C/svg%3E">
+          <span class="hdys-topic-status">报名中</span>
+        </div>
+        <div class="hdys-topic-card-body">
+          <h3>城市光影计划 · 第二季</h3>
+          <p>以城市为取景框，寻找被日常忽略的角落。第二季新增十二个拍摄基地，开放四条创作者扶持通道，优秀作品进入年度展映。</p>
+          <div class="hdys-topic-meta"><span>已更新 18 期</span><span>参与创作者 96 位</span></div>
+        </div>
+      </article>
+      <article class="hdys-topic-card">
+        <div class="hdys-topic-cover">
+          <img alt="专题《手艺人的工作台》封面：木工台与刨花" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23d9c9ac'/%3E%3Crect x='0' y='140' width='400' height='85' fill='%23a98b5f'/%3E%3Crect x='60' y='92' width='200' height='20' rx='4' fill='%238b6a41'/%3E%3Cpath d='M92 112 q20 -46 62 -30 q-16 32 -62 30' fill='%23e8dcc2'/%3E%3Cpath d='M190 112 q26 -38 58 -18 q-18 26 -58 18' fill='%23f0e5cf'/%3E%3Crect x='288' y='70' width='62' height='46' rx='6' fill='%236c7a83'/%3E%3Crect x='300' y='116' width='10' height='24' fill='%233f4a53'/%3E%3C/svg%3E">
+          <span class="hdys-topic-status" style="background:%23e8dcc2;color:%23553f24">更新中</span>
+        </div>
+        <div class="hdys-topic-card-body">
+          <h3>手艺人的工作台</h3>
+          <p>走进木工、制陶、装帧、修复的工作现场，看一件东西怎样从材料变成可以传下去的物件。每期一双手、一个工位。</p>
+          <div class="hdys-topic-meta"><span>已更新 11 期</span><span>单期最长 31 分钟</span></div>
+        </div>
+      </article>
+      <article class="hdys-topic-card">
+        <div class="hdys-topic-cover">
+          <img alt="专题《第一次拍片》封面：手持场记板与笔记本" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23dae4ee'/%3E%3Crect x='0' y='152' width='400' height='73' fill='%23bccbd9'/%3E%3Crect x='70' y='66' width='140' height='82' rx='6' fill='%2334404c'/%3E%3Cpath d='M70 84 h140 v14 h-140 z' fill='%23e8eef3'/%3E%3Cpath d='M96 84 l16 -14 l16 14 z M144 84 l16 -14 l16 14 z' fill='%2334404c'/%3E%3Crect x='238' y='96' width='96' height='66' rx='5' fill='%23f7f9fb' stroke='%239fb0bf' stroke-width='4'/%3E%3Cpath d='M254 118 h64 M254 132 h48 M254 146 h56' stroke='%23bcc8d3' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+          <span class="hdys-topic-status" style="background:%235d7bd5;color:%23fff">征集中</span>
+        </div>
+        <div class="hdys-topic-card-body">
+          <h3>第一次拍片</h3>
+          <p>面向零基础影像爱好者，从写下第一个镜头开始，提供脚本模板、拍摄清单与剪辑入门指南，每月评选一次新人作品。</p>
+          <div class="hdys-topic-meta"><span>已收录 264 部</span><span>新人榜每月更新</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 创作者矩阵 ============ -->
+<section class="hdys-section hdys-creators" id="hdys-creators">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">创作者矩阵</span>
+      <h2 class="hdys-h2">把作品交给他们，我们放心</h2>
+      <p>以下创作者长期与花都影视hdys 合作，点击“查看档案”可展开完整介绍与代表作。</p>
+    </div>
+    <div class="hdys-creator-grid">
+
+      <article class="hdys-creator-card">
+        <div class="hdys-creator-top">
+          <span class="hdys-creator-avatar hdys-av-1">周</span>
+          <div>
+            <div class="hdys-creator-name">周行野</div>
+            <div class="hdys-creator-field">城市探索 · 纪实摄影</div>
+          </div>
+        </div>
+        <p>拍了七年城市。习惯在同一个路口待上整个下午，等一个刚好走过的路人。认为好影像一半靠等，一半靠取舍。</p>
+        <div class="hdys-creator-stats">
+          <div>作品<b>86</b></div>
+          <div>关注者<b>12.4万</b></div>
+          <a class="hdys-creator-link" href="#" data-author="周行野：城市探索类创作者，代表作《老城区的一天》《末班车之前》，长期关注城市更新与普通人的日常动线。">查看档案 ›</a>
+        </div>
+      </article>
+
+      <article class="hdys-creator-card">
+        <div class="hdys-creator-top">
+          <span class="hdys-creator-avatar hdys-av-2">柯</span>
+          <div>
+            <div class="hdys-creator-name">柯望舒</div>
+            <div class="hdys-creator-field">摄影指导 · 技术分享</div>
+          </div>
+        </div>
+        <p>十年商业与纪录拍摄经验，擅长在有限预算里做出可信的质感。课程风格偏实操，喜欢把参数和原因一起讲清楚。</p>
+        <div class="hdys-creator-stats">
+          <div>作品<b>54</b></div>
+          <div>关注者<b>9.7万</b></div>
+          <a class="hdys-creator-link" href="#" data-author="柯望舒：摄影指导，主攻自然光与人像布光，在站内连载《一块反光板能做什么》系列共 18 期。">查看档案 ›</a>
+        </div>
+      </article>
+
+      <article class="hdys-creator-card">
+        <div class="hdys-creator-top">
+          <span class="hdys-creator-avatar hdys-av-3">林</span>
+          <div>
+            <div class="hdys-creator-name">林晚舟</div>
+            <div class="hdys-creator-field">日常记录 · 生活影像</div>
+          </div>
+        </div>
+        <p>把镜头对准自己家的阳台、厨房和楼道。相信平凡的重复里藏着节奏，慢下来才能看见颜色的变化。</p>
+        <div class="hdys-creator-stats">
+          <div>作品<b>132</b></div>
+          <div>关注者<b>18.6万</b></div>
+          <a class="hdys-creator-link" href="#" data-author="林晚舟：生活影像创作者，固定机位长期记录项目《阳台上的四季》持续更新中，另主持“日常影像共修”社群。">查看档案 ›</a>
+        </div>
+      </article>
+
+      <article class="hdys-creator-card">
+        <div class="hdys-creator-top">
+          <span class="hdys-creator-avatar hdys-av-5">霍</span>
+          <div>
+            <div class="hdys-creator-name">霍青禾</div>
+            <div class="hdys-creator-field">人物访谈 · 长片剪辑</div>
+          </div>
+        </div>
+        <p>做过八年纸媒，转做影像后依然保留记者的习惯：先听，再问。擅长把三小时的素材剪成二十分钟的呼吸感。</p>
+        <div class="hdys-creator-stats">
+          <div>作品<b>47</b></div>
+          <div>关注者<b>7.2万</b></div>
+          <a class="hdys-creator-link" href="#" data-author="霍青禾：人物纪录创作者，作品《修表匠的下午》《一封没有寄出的信》，关注手艺人与街区记忆。">查看档案 ›</a>
+        </div>
+      </article>
+
+      <article class="hdys-creator-card">
+        <div class="hdys-creator-top">
+          <span class="hdys-creator-avatar hdys-av-6">许</span>
+          <div>
+            <div class="hdys-creator-name">许南枝</div>
+            <div class="hdys-creator-field">夜间影像 · 声音设计</div>
+          </div>
+        </div>
+        <p>只在日落后开机。喜欢录环境声，认为一条片子的空间感有七成来自声音，剩下三成才是画面。</p>
+        <div class="hdys-creator-stats">
+          <div>作品<b>63</b></div>
+          <div>关注者<b>11.3万</b></div>
+          <a class="hdys-creator-link" href="#" data-author="许南枝：夜间影像创作者，代表作《夜班公交的最后一站》，负责站内多部纪录片的现场收音与声音设计。">查看档案 ›</a>
+        </div>
+      </article>
+
+      <article class="hdys-creator-card">
+        <div class="hdys-creator-top">
+          <span class="hdys-creator-avatar hdys-av-4">花</span>
+          <div>
+            <div class="hdys-creator-name">花都影视hdys 制作组</div>
+            <div class="hdys-creator-field">官方团队 · 自制内容</div>
+          </div>
+        </div>
+        <p>品牌自有制作团队，负责专题企划、品牌故事与年度自制片。每月发布一期幕后手记，公开真实的工作流程。</p>
+        <div class="hdys-creator-stats">
+          <div>作品<b>218</b></div>
+          <div>关注者<b>32.8万</b></div>
+          <a class="hdys-creator-link" href="#" data-author="花都影视hdys 制作组：官方自制团队，由策划、导演、摄制、后期与发行五个小组构成，负责全部自制专题与年度企划。">查看档案 ›</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 影像墙 ============ -->
+<section class="hdys-section hdys-wall" id="hdys-wall">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">影像墙</span>
+      <h2 class="hdys-h2">社区里的十二个瞬间</h2>
+      <p>来自创作者上传与专题征集的画面，混合大图与小图排列，记录同一段时间里不同的生活切面。</p>
+    </div>
+    <div class="hdys-wall-grid">
+      <figure class="hdys-wall-item is-big">
+        <img alt="影像墙作品《雨后的天台》封面：积水倒映的天空" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%236b8296'/%3E%3Crect x='0' y='0' width='400' height='180' fill='%239db4c6'/%3E%3Cpath d='M0 180 h400 v220 h-400 z' fill='%23a8bccb'/%3E%3Cpath d='M40 240 q60 -22 120 0 t120 0 t100 -6' stroke='%23e6eef4' stroke-width='6' fill='none' opacity='0.6'/%3E%3Cpath d='M20 320 q70 -18 140 0 t160 0' stroke='%23e6eef4' stroke-width='5' fill='none' opacity='0.45'/%3E%3Crect x='300' y='128' width='42' height='60' fill='%23505f6c'/%3E%3C/svg%3E">
+        <figcaption>《雨后的天台》· 地面成了第二片天空</figcaption>
+      </figure>
+      <figure class="hdys-wall-item is-wide">
+        <img alt="影像墙作品《早市的第一锅豆浆》封面：蒸汽中的早点摊" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23e6d8c0'/%3E%3Crect x='0' y='132' width='400' height='68' fill='%23c5aa85'/%3E%3Crect x='52' y='94' width='90' height='40' rx='5' fill='%238c6b46'/%3E%3Crect x='150' y='86' width='76' height='48' rx='5' fill='%23a8825a'/%3E%3Cpath d='M80 86 q12 -26 0 -44 M112 84 q12 -26 0 -44 M240 96 q12 -24 0 -40' stroke='%23fbf7ef' stroke-width='6' fill='none' opacity='0.7'/%3E%3C/svg%3E">
+        <figcaption>《早市的第一锅豆浆》· 五点二十三分</figcaption>
+      </figure>
+      <figure class="hdys-wall-item">
+        <img alt="影像墙作品《窗边的作业本》封面：孩子写字的背影" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23dbe4ea'/%3E%3Crect x='118' y='20' width='62' height='96' fill='%23f5fafc' stroke='%23a9bac6' stroke-width='4'/%3E%3Ccircle cx='92' cy='104' r='26' fill='%23907a63'/%3E%3Cpath d='M58 200 q0 -52 34 -52 t34 52 z' fill='%233f6a8a'/%3E%3Crect x='40' y='152' width='104' height='10' rx='4' fill='%23c9b79e'/%3E%3C/svg%3E">
+        <figcaption>《窗边的作业本》</figcaption>
+      </figure>
+      <figure class="hdys-wall-item is-tall">
+        <img alt="影像墙作品《楼梯间的光》封面：斜射进楼道的阳光" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'%3E%3Crect width='200' height='400' fill='%232d3743'/%3E%3Cpath d='M0 400 L200 250 L200 400 Z' fill='%23f7e0b8' opacity='0.9'/%3E%3Cpath d='M0 0 L96 0 L96 400 L0 400 Z' fill='%231f2833'/%3E%3Cpath d='M96 120 L200 60 L200 106 L96 166 Z' fill='%23fff2d6' opacity='0.55'/%3E%3Crect x='24' y='230' width='54' height='90' fill='%233b4757'/%3E%3C/svg%3E">
+        <figcaption>《楼梯间的光》· 三楼转角</figcaption>
+      </figure>
+      <figure class="hdys-wall-item">
+        <img alt="影像墙作品《晒台上的被子》封面：晾绳上的棉被" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23cfe0ec'/%3E%3Cpath d='M0 150 h200 v50 h-200 z' fill='%23a9bccb'/%3E%3Cpath d='M20 56 L180 70' stroke='%23808f9a' stroke-width='4'/%3E%3Cpath d='M38 58 q10 62 40 62 q30 0 34 -54 Z' fill='%23e8a98c'/%3E%3Cpath d='M126 66 q10 54 34 54 q24 0 22 -46 Z' fill='%23f2d7c4'/%3E%3C/svg%3E">
+        <figcaption>《晒台上的被子》</figcaption>
+      </figure>
+      <figure class="hdys-wall-item is-wide">
+        <img alt="影像墙作品《桥下的排练》封面：乐队在桥洞下排练" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect width='400' height='200' fill='%23343f4c'/%3E%3Cpath d='M0 0 h400 v54 q-200 52 -400 0 z' fill='%23252e39'/%3E%3Crect x='0' y='150' width='400' height='50' fill='%231f272f'/%3E%3Ccircle cx='130' cy='110' r='22' fill='%23e0b076'/%3E%3Crect x='122' y='132' width='16' height='42' rx='6' fill='%23e0b076'/%3E%3Crect x='220' y='102' width='10' height='76' rx='4' fill='%23c9a06c'/%3E%3Ccircle cx='290' cy='106' r='18' fill='%23a8c4cf'/%3E%3C/svg%3E">
+        <figcaption>《桥下的排练》· 每个周四的固定节目</figcaption>
+      </figure>
+      <figure class="hdys-wall-item">
+        <img alt="影像墙作品《菜市场的颜色》封面：摊位上堆叠的蔬果" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0e7d8'/%3E%3Crect x='0' y='130' width='200' height='70' fill='%23c9b79e'/%3E%3Ccircle cx='52' cy='124' r='20' fill='%23d96b4f'/%3E%3Ccircle cx='86' cy='130' r='13' fill='%23e8a24a'/%3E%3Ccircle cx='112' cy='120' r='17' fill='%236ba35c'/%3E%3Ccircle cx='146' cy='128' r='12' fill='%238f5db0'/%3E%3Crect x='24' y='60' width='152' height='8' rx='4' fill='%23a8946f'/%3E%3C/svg%3E">
+        <figcaption>《菜市场的颜色》</figcaption>
+      </figure>
+      <figure class="hdys-wall-item">
+        <img alt="影像墙作品《放学路上》封面：校门口奔跑的孩子" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23dce7ef'/%3E%3Crect x='0' y='142' width='200' height='58' fill='%23b9c8d3'/%3E%3Crect x='18' y='40' width='76' height='86' fill='%23e8eef3' stroke='%23b0bfca' stroke-width='4'/%3E%3Ccircle cx='128' cy='116' r='16' fill='%23907a63'/%3E%3Cpath d='M108 150 q0 -34 20 -34 t20 34 z' fill='%23d96b4f'/%3E%3Ccircle cx='166' cy='122' r='13' fill='%23907a63'/%3E%3Cpath d='M150 150 q0 -28 16 -28 t16 28 z' fill='%234f8b55'/%3E%3C/svg%3E">
+        <figcaption>《放学路上》</figcaption>
+      </figure>
+      <figure class="hdys-wall-item is-tall">
+        <img alt="影像墙作品《巷口的理发店》封面：老式理发椅与转灯" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 400'%3E%3Crect width='200' height='400' fill='%23e3dccc'/%3E%3Crect x='0' y='316' width='200' height='84' fill='%23b9ab92'/%3E%3Crect x='44' y='168' width='58' height='150' rx='10' fill='%2370948f'/%3E%3Crect x='44' y='132' width='58' height='44' rx='8' fill='%23a8bdba'/%3E%3Crect x='140' y='40' width='20' height='150' rx='10' fill='%23e8eef3'/%3E%3Cpath d='M140 54 q20 20 0 40 q-20 -20 0 -40 z M140 110 q20 20 0 40 q-20 -20 0 -40 z' fill='%23d96b4f'/%3E%3C/svg%3E">
+        <figcaption>《巷口的理发店》· 转灯还亮着</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 用户评价 ============ -->
+<section class="hdys-section hdys-voices">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">社区口碑</span>
+      <h2 class="hdys-h2">他们为什么愿意留在这里</h2>
+      <p>以下评价来自站内创作者、合作方与长期观众，语气与关注点各不相同，我们原样保留。</p>
+    </div>
+    <div class="hdys-voice-grid">
+      <article class="hdys-voice-card">
+        <p class="hdys-voice-quote">第一次投片的时候没抱什么期待，结果收到一封很长的反馈邮件，逐条讲了我的剪辑节奏问题在哪里。那一刻就知道这个平台是认真在做内容的。</p>
+        <div class="hdys-voice-user"><span class="hdys-avatar hdys-av-3">顾</span><div><b>顾亦言</b><span>独立导演 · 入驻两年</span></div></div>
+      </article>
+      <article class="hdys-voice-card">
+        <p class="hdys-voice-quote">作为品牌方，我们最看重的是可控。花都影视hdys 的流程表清楚到每一个节点，素材授权台账也做得规整，合作下来几乎没有返工。</p>
+        <div class="hdys-voice-user"><span class="hdys-avatar hdys-av-5">程</span><div><b>程书禾</b><span>品牌市场负责人</span></div></div>
+      </article>
+      <article class="hdys-voice-card">
+        <p class="hdys-voice-quote">画面干净，不吵。晚上回家随便点开一条，能安安静静看完，这在现在挺难得的。</p>
+        <div class="hdys-voice-user"><span class="hdys-avatar hdys-av-2">徐</span><div><b>徐小满</b><span>普通观众 · 三年</span></div></div>
+      </article>
+      <article class="hdys-voice-card">
+        <p class="hdys-voice-quote">参加了“第一次拍片”，从写脚本到剪完花了两个月，中间在社区里问了十几个问题都有人回。片子最后进了新人榜，挺意外的。</p>
+        <div class="hdys-voice-user"><span class="hdys-avatar hdys-av-1">任</span><div><b>任予安</b><span>新人创作者</span></div></div>
+      </article>
+      <article class="hdys-voice-card">
+        <p class="hdys-voice-quote">专题质量稳定，尤其是《手艺人的工作台》，每一期都能看到真正的手上功夫，不是那种摆拍出来的手艺。</p>
+        <div class="hdys-voice-user"><span class="hdys-avatar hdys-av-6">贺</span><div><b>贺兰舟</b><span>纪录片爱好者</span></div></div>
+      </article>
+      <article class="hdys-voice-card">
+        <p class="hdys-voice-quote">高校合作做过一期城市影像工作坊，团队的执行力和现场调度的专业度超出预期，学生反馈非常好，后面还会继续合作。</p>
+        <div class="hdys-voice-user"><span class="hdys-avatar hdys-av-4">谭</span><div><b>谭清和</b><span>院校教师 · 合作方</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 创作灵感 / 工具 ============ -->
+<section class="hdys-section hdys-tools">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">创作灵感</span>
+      <h2 class="hdys-h2">给正在动笔的你，三个可以马上用的小工具</h2>
+      <p>这些工具由花都影视hdys 内容团队整理，基于站内高完成度作品的共性归纳，点击即可查看示例。</p>
+    </div>
+    <div class="hdys-tool-grid">
+      <article class="hdys-tool-card">
+        <span class="hdys-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+        <h3>脚本灵感生成</h3>
+        <p>输入一个地点和一种情绪，返回三个可行的开场设计，每个都附带机位建议与所需时间。</p>
+        <button type="button" data-tool="脚本灵感生成：示例输出——开场一，从手部特写切入，交代动作而非身份；开场二，用环境声先于画面三秒进入；开场三，固定长镜头等人物入画。">查看示例 ›</button>
+      </article>
+      <article class="hdys-tool-card">
+        <span class="hdys-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 18V6M4 18h16"/><path d="M8 14l4-6 3 4 4-7"/></svg></span>
+        <h3>标题与封面建议</h3>
+        <p>根据作品类型与核心情绪，给出三组标题方向，并提示封面上应该出现与不应出现的信息。</p>
+        <button type="button" data-tool="标题与封面建议：避免堆砌形容词，优先交代一个具体动作或时间；封面上保留一个人物、一个空间线索即可，文字不超过八个字。">查看示例 ›</button>
+      </article>
+      <article class="hdys-tool-card">
+        <span class="hdys-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>
+        <h3>剪辑节奏检查</h3>
+        <p>按片长与内容类型给出节奏参考，标出容易拖沓的段落位置，帮助你决定哪一段该删。</p>
+        <button type="button" data-tool="剪辑节奏检查：二十分钟以内的纪录短片，建议每三到四分钟出现一次信息转折；连续超过九十秒无新信息的段落，优先考虑压缩或替换。">查看示例 ›</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 企业动态 ============ -->
+<section class="hdys-section hdys-news" id="hdys-news">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">企业动态</span>
+      <h2 class="hdys-h2">官方发布与内容更新</h2>
+      <p>这里记录品牌的真实进展：新企划、新合作、新规则，以及每一次内容调整背后的原因。</p>
+    </div>
+    <div class="hdys-news-list">
+      <article class="hdys-news-item">
+        <div class="hdys-news-date">11月18日<span>2026</span></div>
+        <div>
+          <h3>「城市光影计划」第二季开放报名，新增十二个拍摄基地</h3>
+          <p>报名通道持续至12月20日，入选创作者将获得设备支持与后期指导。</p>
+        </div>
+        <span class="hdys-news-arrow">›</span>
+      </article>
+      <article class="hdys-news-item">
+        <div class="hdys-news-date">11月10日<span>2026</span></div>
+        <div>
+          <h3>官方发布内容交付标准 v3.2，细化音频与字幕规范</h3>
+          <p>新版标准对响度、字幕断句与片尾署名格式做出调整，已在帮助中心更新说明。</p>
+        </div>
+        <span class="hdys-news-arrow">›</span>
+      </article>
+      <article class="hdys-news-item">
+        <div class="hdys-news-date">10月29日<span>2026</span></div>
+        <div>
+          <h3>与三所院校达成影像工作坊合作，面向学生开放实践名额</h3>
+          <p>首批工作坊将在十二月启动，围绕城市记录与人物访谈两个方向展开。</p>
+        </div>
+        <span class="hdys-news-arrow">›</span>
+      </article>
+      <article class="hdys-news-item">
+        <div class="hdys-news-date">10月15日<span>2026</span></div>
+        <div>
+          <h3>年度自制片《一条街的九年》进入后期，预计十二月上线</h3>
+          <p>该片跟拍同一条商业街的九年间变化，素材总量超过六百小时。</p>
+        </div>
+        <span class="hdys-news-arrow">›</span>
+      </article>
+      <article class="hdys-news-item">
+        <div class="hdys-news-date">09月26日<span>2026</span></div>
+        <div>
+          <h3>社区互动规则更新，新增作品互评与投票机制</h3>
+          <p>创作者可在专题页为同期作品投票，评选结果将影响每月推荐位排序。</p>
+        </div>
+        <span class="hdys-news-arrow">›</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 合作品牌 ============ -->
+<section class="hdys-partners">
+  <div class="hdys-container">
+    <div class="hdys-section-head" style="margin-bottom:24px">
+      <span class="hdys-eyebrow">合作品牌</span>
+      <h2 class="hdys-h2" style="font-size:22px">与我们一起把内容做扎实的伙伴</h2>
+    </div>
+    <div class="hdys-partner-row">
+      <div class="hdys-partner"><b>青梧影像器材</b><span>设备支持</span></div>
+      <div class="hdys-partner"><b>南岸文创园</b><span>拍摄基地</span></div>
+      <div class="hdys-partner"><b>禾田声音工作室</b><span>后期合作</span></div>
+      <div class="hdys-partner"><b>行知书院</b><span>学术顾问</span></div>
+      <div class="hdys-partner"><b>拾光放映社</b><span>线下展映</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="hdys-section hdys-faq" id="hdys-faq">
+  <div class="hdys-container">
+    <div class="hdys-section-head">
+      <span class="hdys-eyebrow">帮助中心</span>
+      <h2 class="hdys-h2">常见问题</h2>
+      <p>如果没有找到答案，可以在页面底部留言或直接联系内容团队。</p>
+    </div>
+    <div class="hdys-faq-list">
+      <details class="hdys-faq-item" open>
+        <summary>花都影视hdys 是一个什么样的平台？</summary>
+        <p>我们是一家专注原创影像的视频品牌企业，既制作自制内容，也为创作者提供发布、优化与发行支持。站内内容以纪录、剧情短片、生活方式与城市影像为主，所有作品均经过编辑审核与品质校验。</p>
+      </details>
+      <details class="hdys-faq-item">
+        <summary>如何向平台投稿自己的作品？</summary>
+        <p>点击页面上方的“投稿入口”，填写作品基本信息并附上成片或素材链接即可。我们会在五个工作日内给出初审意见，通过后进入排期与优化环节。首次投稿建议先阅读帮助中心里的交付标准说明。</p>
+      </details>
+      <details class="hdys-faq-item">
+        <summary>平台对作品的画质和格式有要求吗？</summary>
+        <p>建议提交 1080p 及以上分辨率、码率不低于 12Mbps 的成片，音频响度控制在 -16LUFS 左右。若原始素材规格更高，可在备注中说明，我们会保留母版备份。高清是我们对精品内容的基础承诺。</p>
+      </details>
+      <details class="hdys-faq-item">
+        <summary>作品入选专题后会得到哪些支持？</summary>
+        <p>入选作品将获得封面与标题优化建议、站内推荐位曝光，以及编辑撰写的内容导读。表现突出的创作者可进入签约池，获得拍摄资金、设备借用与线下展映机会。</p>
+      </details>
+      <details class="hdys-faq-item">
+        <summary>如何参加「城市光影计划」等专题企划？</summary>
+        <p>在专题页面查看当期主题与报名时间，按要求提交作品或拍摄提案即可。每个企划的评审维度不同，但都包含主题契合度、叙事完整度与影像质感三项基本标准。</p>
+      </details>
+      <details class="hdys-faq-item">
+        <summary>品牌方可以合作定制内容吗？</summary>
+        <p>可以。我们提供从策划、拍摄到发行的完整服务，也会根据品牌调性匹配适合的创作者。合作前会进行一次需求沟通，确认主题边界、交付规格与时间节点后再进入执行。</p>
+      </details>
+      <details class="hdys-faq-item">
+        <summary>素材授权与版权如何界定？</summary>
+        <p>所有商用音乐、字体与影像素材均需登记来源与授权期限，创作者保留作品署名权。平台在获得授权范围内进行展示与推广，具体条款会在投稿确认时以书面形式说明。</p>
+      </details>
+      <details class="hdys-faq-item">
+        <summary>遇到内容或账号问题该找谁？</summary>
+        <p>可通过页面底部的联系邮箱反馈，也可在帮助中心提交问题单。我们会在两个工作日内回复，涉及版权与投诉的事项会优先处理。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 联系与投稿 ============ -->
+<section class="hdys-section hdys-contact" id="hdys-contact">
+  <div class="hdys-container hdys-contact-grid">
+    <div>
+      <span class="hdys-eyebrow" style="color:#ffb79c">联系我们</span>
+      <h2>把你想拍的故事，<em>交给我们一起完成</em></h2>
+      <p>无论你是创作者、品牌方，还是只想提一个建议的观众，我们都愿意认真读完。花都影视hdys 的每一次更新，都来自具体的沟通。</p>
+      <div class="hdys-contact-actions">
+        <button class="hdys-btn hdys-btn-primary" type="button" id="hdys-contact-submit">我要投稿</button>
+        <button class="hdys-btn hdys-btn-ghost" type="button" id="hdys-contact-share" style="border-color:rgba(255,255,255,.3);color:#e8eef6">分享本页</button>
+      </div>
+    </div>
+    <div class="hdys-contact-panel">
+      <h3>内容团队联系方式</h3>
+      <ul>
+        <li><b>投稿咨询</b>content@hdys-studio.example</li>
+        <li><b>品牌合作</b>brand@hdys-studio.example</li>
+        <li><b>媒体联络</b>press@hdys-studio.example</li>
+        <li><b>办公地址</b>华南 · 花都创意园 B 栋 3 层</li>
+        <li><b>工作时间</b>周一至周五 10:00–18:30</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="hdys-footer">
+  <div class="hdys-container">
+    <div class="hdys-footer-grid">
+      <div>
+        <div class="hdys-footer-brand">
+          <span class="hdys-brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 L19 12 L8 19 Z" fill="#ff6b3d"/></svg></span>
+          <strong>花都影视hdys</strong>
+        </div>
+        <p>花都影视hdys 官方网站 · 专注原创影像与精品内容。我们以匠心对待每一帧画面，以真实连接每一位创作者，持续运营一个多元、包容、值得信赖的视频品牌内容生态。</p>
+        <p>© 2017–2026 花都影视hdys 版权所有</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#hdys-focus">视频焦点</a></li>
+          <li><a href="#hdys-feed">热门内容</a></li>
+          <li><a href="#hdys-topics">专题企划</a></li>
+          <li><a href="#hdys-wall">影像墙</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#hdys-about">品牌故事</a></li>
+          <li><a href="#hdys-creators">创作者矩阵</a></li>
+          <li><a href="#hdys-news">企业动态</a></li>
+          <li><a href="#hdys-faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与共建</h4>
+        <ul>
+          <li><a href="#hdys-contact">投稿入口</a></li>
+          <li><a href="#hdys-contact">品牌合作</a></li>
+          <li><a href="#hdys-topics">报名与挑战</a></li>
+          <li><a href="#hdys-contact">意见反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="hdys-footer-bottom">
+      <span>花都影视hdys 官方网站 | 版权所有 | 持续运营中</span>
+      <span>粤ICP备 2017056821号-3 · 内容均为原创，未经授权请勿转载</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ 弹窗与提示 ============ -->
+<div class="hdys-modal-mask" id="hdys-modal-mask" role="dialog" aria-modal="true" aria-labelledby="hdys-modal-title">
+  <div class="hdys-modal">
+    <button class="hdys-modal-close" type="button" id="hdys-modal-close" aria-label="关闭">×</button>
+    <h3 id="hdys-modal-title">提示</h3>
+    <p class="hdys-modal-desc" id="hdys-modal-desc"></p>
+    <div id="hdys-modal-body"></div>
+  </div>
+</div>
+<div class="hdys-toast" id="hdys-toast" role="status" aria-live="polite"></div>
+<button class="hdys-backtop" id="hdys-backtop" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 工具：Toast ---------- */
+  var toastEl = document.getElementById('hdys-toast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toastEl.classList.remove('is-show');
+    }, 2200);
+  }
+
+  /* ---------- 工具：Modal ---------- */
+  var mask = document.getElementById('hdys-modal-mask');
+  var modalTitle = document.getElementById('hdys-modal-title');
+  var modalDesc = document.getElementById('hdys-modal-desc');
+  var modalBody = document.getElementById('hdys-modal-body');
+  function openModal(title, desc, bodyHTML){
+    modalTitle.textContent = title;
+    modalDesc.textContent = desc || '';
+    modalBody.innerHTML = bodyHTML || '';
+    mask.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('hdys-modal-close').addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){
+    if(e.target === mask) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mask.classList.contains('is-open')) closeModal();
+  });
+
+  /* ---------- 移动端导航折叠 ---------- */
+  var burger = document.getElementById('hdys-burger');
+  var mobilePanel = document.getElementById('hdys-mobile-panel');
+  burger.addEventListener('click', function(){
+    var open = mobilePanel.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobilePanel.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      mobilePanel.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  /* ---------- 导航高亮 ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.hdys-nav a'));
+  var sectionIds = ['hdys-top','hdys-focus','hdys-topics','hdys-creators','hdys-news','hdys-faq','hdys-contact'];
+  function syncNav(){
+    var pos = window.scrollY + 180;
+    var current = 'hdys-top';
+    sectionIds.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && el.offsetTop <= pos) current = id;
+    });
+    navLinks.forEach(function(a){
+      a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('hdys-search-input');
+  var searchBtn = document.getElementById('hdys-search-btn');
+  var searchFeedback = document.getElementById('hdys-search-feedback');
+  var searchData = [
+    '老城区的一天','自然光访谈拍摄','阳台上的四季','一条片子的七十二小时',
+    '修表匠的下午','夜班公交的最后一站','城市光影计划','手艺人的工作台',
+    '第一次拍片','周行野','柯望舒','林晚舟','霍青禾','许南枝'
+  ];
+  function doSearch(){
+    var kw = (searchInput.value || '').trim();
+    if(!kw){
+      searchFeedback.innerHTML = '输入作品名、创作者或专题关键词试试，例如 <b>城市</b>、<b>自然光</b>。';
+      searchFeedback.classList.add('is-open');
+      return;
+    }
+    var hit = searchData.filter(function(item){
+      return item.indexOf(kw) > -1;
+    });
+    if(hit.length){
+      searchFeedback.innerHTML = '找到 <b>' + hit.length + '</b> 条相关内容：<br>' + hit.slice(0,4).join(' · ');
+    }else{
+      searchFeedback.innerHTML = '暂未找到与 <b>' + kw + '</b> 直接相关的内容，可尝试更短的关键词或浏览热门内容。';
+    }
+    searchFeedback.classList.add('is-open');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  searchInput.addEventListener('focus', function(){
+    if(searchInput.value.trim()) doSearch();
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.hdys-search')) searchFeedback.classList.remove('is-open');
+  });
+
+  /* ---------- 标签筛选 ---------- */
+  var tagbar = document.getElementById('hdys-tagbar');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.hdys-video-card'));
+  tagbar.addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if(!btn) return;
+    var filter = btn.getAttribute('data-filter');
+    Array.prototype.forEach.call(tagbar.querySelectorAll('button'), function(b){
+      b.classList.toggle('is-on', b === btn);
+    });
+    cards.forEach(function(card){
+      var match = filter === 'all' || card.getAttribute('data-kind') === filter;
+      card.style.display = match ? '' : 'none';
+    });
+  });
+
+  /* ---------- 点赞 / 收藏 / 分享 ---------- */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-act]');
+    if(!btn) return;
+    var act = btn.getAttribute('data-act');
+    if(act === 'like'){
+      var span = btn.querySelector('[data-like-count]');
+      var n = parseInt(span.getAttribute('data-like-count'), 10);
+      var liked = btn.classList.toggle('is-liked');
+      n = liked ? n + 1 : n - 1;
+      span.textContent = n;
+      span.setAttribute('data-like-count', n);
+      showToast(liked ? '已点赞，感谢你的喜欢' : '已取消点赞');
+    }else if(act === 'save'){
+      var saved = btn.classList.toggle('is-saved');
+      btn.lastChild.nodeValue = saved ? '已收藏' : '收藏';
+      showToast(saved ? '已加入收藏夹' : '已从收藏夹移除');
+    }else if(act === 'share'){
+      openShareModal();
+    }
+  });
+
+  function openShareModal(){
+    var body = '<div class="hdys-share-row">' +
+      '<button type="button" data-share="wechat">微信</button>' +
+      '<button type="button" data-share="weibo">微博</button>' +
+      '<button type="button" data-share="qq">QQ</button>' +
+      '<button type="button" data-share="copy">复制链接</button>' +
+      '</div>';
+    openModal('分享这条内容', '把你的发现告诉同样喜欢影像的朋友。', body);
+  }
+
+  document.addEventListener('click', function(e){
+    var sb = e.target.closest('[data-share]');
+    if(!sb) return;
+    var type = sb.getAttribute('data-share');
+    if(type === 'copy'){
+      var link = 'https://hdys.example/featured';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){
+          showToast('链接已复制到剪贴板');
+        }).catch(function(){
+          showToast('复制失败，请手动选择链接');
+        });
+      }else{
+        showToast('链接已生成，可手动复制');
+      }
+    }else{
+      var nameMap = { wechat:'微信', weibo:'微博', qq:'QQ' };
+      showToast('已唤起' + nameMap[type] + '分享');
+    }
+    closeModal();
+  });
+
+  document.getElementById('hdys-contact-share').addEventListener('click', openShareModal);
+
+  /* ---------- 作者档案弹窗 ---------- */
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('[data-author]');
+    if(!link) return;
+    e.preventDefault();
+    var info = link.getAttribute('data-author');
+    var parts = info.split('：');
+    openModal(parts[0] || '创作者档案', parts[1] || info, '<p style="font-size:13px;color:#6b7685;line-height:1.9">这位创作者长期与花都影视hdys 保持合作，作品可在“热门内容”与“影像墙”中查看。</p>');
+  });
+
+  /* ---------- 工具示例 / 投稿弹窗 ---------- */
+  document.addEventListener('click', function(e){
+    var tool = e.target.closest('[data-tool]');
+    if(tool){
+      var t = tool.getAttribute('data-tool');
+      var arr = t.split('：');
+      openModal(arr[0], arr[1], '<p style="font-size:13px;color:#6b7685;line-height:1.9">该示例由内容团队整理，实际使用时请结合你的素材情况调整。</p>');
+      return;
+    }
+  });
+
+  var submitBtns = [document.getElementById('hdys-submit-open'), document.getElementById('hdys-contact-submit')];
+  submitBtns.forEach(function(b){
+    if(!b) return;
+    b.addEventListener('click', function(e){
+      if(b.tagName === 'A') e.preventDefault();
+      openModal('投稿入口',
+        '填写作品基本信息后提交，我们会在五个工作日内回复初审意见。',
+        '<div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">' +
+        '<input type="text" placeholder="作品标题" style="padding:11px 14px;border:1px solid #e2e6ec;border-radius:10px;font-size:13px;outline:none">' +
+        '<input type="text" placeholder="创作者昵称 / 联系方式" style="padding:11px 14px;border:1px solid #e2e6ec;border-radius:10px;font-size:13px;outline:none">' +
+        '<textarea placeholder="一句话介绍你的作品" rows="3" style="padding:11px 14px;border:1px solid #e2e6ec;border-radius:10px;font-size:13px;outline:none;resize:vertical;font-family:inherit"></textarea>' +
+        '<button type="button" class="hdys-btn hdys-btn-primary" id="hdys-fake-submit">提交作品信息</button>' +
+        '</div>');
+    });
+  });
+  document.addEventListener('click', function(e){
+    if(e.target.id === 'hdys-fake-submit'){
+      closeModal();
+      showToast('信息已记录，我们会尽快与您联系');
+    }
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  var backtop = document.getElementById('hdys-backtop');
+  window.addEventListener('scroll', function(){
+    backtop.classList.toggle('is-show', window.scrollY > 480);
+    syncNav();
+  }, { passive:true });
+  backtop.addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  var nums = Array.prototype.slice.call(document.querySelectorAll('.hdys-stat-num[data-count]'));
+  var numDone = false;
+  function runCount(){
+    if(numDone) return;
+    numDone = true;
+    nums.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var small = el.querySelector('small');
+      var smallHTML = small ? small.outerHTML : '';
+      var start = null;
+      var dur = 1200;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = Math.floor(target * eased);
+        el.innerHTML = val.toLocaleString('en-US') + smallHTML;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ runCount(); io.disconnect(); }
+      });
+    }, { threshold:.4 });
+    nums.forEach(function(el){ io.observe(el); });
+  }else{
+    runCount();
+  }
+
+  syncNav();
+})();
+</script>
+
+</body>
+            </html>
